@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Available Boat Pulls</h1>
+    {% for pull in pulls_with_members %}
+        <div class="boat-pull">
+            <h2>{{ pull.boat_pull.date }} at {{ pull.boat_pull.time }}</h2>
+            <p>Spots left: {{ pull.boat_pull.available_spots }} / {{ pull.boat_pull.max_capacity }}</p>
+            
+            <h3>Registered Members:</h3>
+            <ul class="members-list">
+                {% if pull.members %}
+                    {% for signup in pull.members %}
+                        <li>{{ signup.user.username }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li>No members registered yet.</li>
+                {% endif %}
+            </ul>
+
+            <!-- Registration form -->
+            {% if pull.is_registered %}
+                <p class="already-registered">You have already registered for this pull.</p>
+            {% elif pull.boat_pull.available_spots > 0 %}
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="pull_id" value="{{ pull.boat_pull.id }}">
+                    <button type="submit" class="register-button">Register for this pull</button>
+                </form>
+            {% else %}
+                <p class="full-message">This pull is full.</p>
+            {% endif %}
+        </div>
+        <hr> <!-- Separate each boat pull visually -->
+    {% endfor %}
+</div>
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endblock %}

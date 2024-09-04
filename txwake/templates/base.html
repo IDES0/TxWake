@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TxWake{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'txwake/css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{% url 'home' %}">TxWake</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'boat_pull_list' %}">Boat Pull Sign-Up</a></li>
+
+                 <li class="dropdown">
+                    <a href="#" class="dropbtn">{{ user.username }}</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'profile' %}">Profile</a>
+                        <a href="{% url 'logout' %}">Logout</a>
+                    </div>
+                </li>
+            {% else %}
+                <li><a href="{% url 'login' %}" style="color:red">Boat Pull Sign-Up</a></li>
+                <li class="dropdown">
+                    <a href="{% url 'login' %}" class="dropbtn" style="color:red">No Account</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'login' %}">Login</a>
+                        <a href="{% url 'register' %}">Register</a>
+                    </div>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
