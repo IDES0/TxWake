@@ -1,8 +1,20 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home - Texas Wake
+{% endblock %}
 
 {% block content %}
-<div class="home-content">
-    <h1>Welcome to the Texas Wake!</h1>
-    <p>This is the home page where relevant Club Information will be displayed.</p>
-</div>
+    <!-- Video Background Section -->
+    <video autoplay muted loop playsinline id="background-video" poster="{% static 'txwake/images/video-poster.jpg' %}">
+        <source src="{% static 'txwake/videos/HomepageVideo.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Content that overlays on top of the video -->
+    <div class="video-overlay">
+        <h1>Welcome to Texas Wake</h1>
+        <p>Wakeboarding at the University of Texas at Austin</p>
+    </div>
 {% endblock %}

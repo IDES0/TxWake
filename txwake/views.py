@@ -37,6 +37,7 @@ def boat_pull_list(request):
             messages.error(request, 'Sorry, this pull is already full.')
 
     return render(request, 'txwake/boat_pull_list.html', {'pulls_with_members': pulls_with_members})
+
 @login_required
 def boat_pull_signup(request, pull_id):
     boat_pull = get_object_or_404(BoatPull, id=pull_id)
