@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-t31hd=m!sd0tncaq6#=^sa6+7e=i!-o9ew=n9p6oxy)wts2)$j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['texaswake.org', 'www.texaswake.org']
 
