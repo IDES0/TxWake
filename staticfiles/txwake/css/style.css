@@ -1,0 +1,378 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Transparent Navigation Bar Styles */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Make it stay on top */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it's above the video */
+    box-sizing: border-box;
+}
+
+.navbar .logo a {
+    color: #BF5700; /* Burnt orange */
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-links li a {
+    color: #FFF5E1; /* Light cream for contrast */
+    text-decoration: none;
+    font-size: 18px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.navbar .nav-links li a:hover {
+    background-color: rgba(191, 87, 0, 0.5); /* Semi-transparent burnt orange */
+    border-radius: 4px;
+}
+
+/* Container for Centering the Content */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Form Box Styling (e.g., Login Forms) */
+.form-box {
+    background-color: #F2A900; /* Lighter burnt orange background */
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 30px;
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #BF5700; /* Burnt orange text */
+}
+
+.form-box form input[type="text"],
+.form-box form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #BF5700; /* Burnt orange border */
+    border-radius: 4px;
+    background-color: #FFF5E1; /* Light cream background */
+    color: #BF5700; /* Burnt orange text */
+}
+
+/* Submit Button Styling */
+.form-box form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #BF5700; /* Burnt orange background */
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.form-box form button:hover {
+    background-color: #A64B00; /* Darker burnt orange on hover */
+}
+
+/* Error Messages Styling */
+.errorlist {
+    color: #ff6b6b;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+/* Home Page Content Styling */
+.home-content {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.home-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #BF5700; /* Burnt orange */
+}
+
+.home-content p {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    color: #BF5700; /* Burnt orange */
+}
+
+/* Dropdown Menu Styling */
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropbtn {
+    font-size: 18px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    color: #FFF5E1; /* Light cream */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #BF5700; /* Burnt orange background */
+    min-width: 200px;
+    padding: 10px 0;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: #FFFFFF; /* White text */
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #A64B00; /* Darker burnt orange on hover */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: rgba(242, 169, 0, 0.5); /* Semi-transparent lighter burnt orange on hover */
+}
+
+/* Alternate Action Button Styling (e.g., "Sign Up" button) */
+.alternate-action {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.alternate-action p {
+    font-size: 14px;
+    color: #BF5700; /* Burnt orange */
+}
+
+.alternate-action a.btn-alternate {
+    color: #FFFFFF; /* White text */
+    background-color: #BF5700; /* Burnt orange background */
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #BF5700; /* Burnt orange border */
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.alternate-action a.btn-alternate:hover {
+    background-color: #A64B00; /* Darker burnt orange on hover */
+    color: #FFFFFF; /* White text */
+}
+
+/* Boat Pull List for listing participants on each boat */
+/* Boat Pull Container Styling */
+.boat-pull {
+    background-color: #2C2C2C; /* Slightly gray background */
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid white; /* White outline */
+    margin-bottom: 20px; /* Space between boat pulls */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+
+.boat-pull h2 {
+    color: #F2A900; /* Burnt orange */
+    margin-bottom: 10px;
+}
+
+.boat-pull p {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.boat-pull h3 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.members-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.members-list li {
+    font-size: 1rem;
+    color: #F2A900; /* Burnt orange */
+}
+
+/* Register Button Styling */
+.register-button {
+    background-color: #BF5700; /* Burnt orange */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+    background-color: #A64B00; /* Darker burnt orange on hover */
+}
+
+/* Full Message Styling */
+.full-message {
+    color: red; /* Red to indicate full capacity */
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Already Registered Message */
+.already-registered {
+    color: red;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.messages {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.message.success {
+    background-color: #28a745; /* Green for success messages */
+}
+
+.message.error {
+    background-color: #dc3545; /* Red for error messages */
+}
+
+/* Add margin to avoid content overlapping with the navbar */
+.content {
+    padding-top: 80px; /* Adjust this value based on the navbar height */
+}
+
+/* Video Background Styling */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Make sure video stays behind all other content */
+    opacity: 0.75; /* Slight transparency to make text more readable */
+}
+
+/* Content that overlays on top of the video */
+.video-overlay {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    top: 10%; /* Adjust this to control how far below the navbar it appears */
+    transform: translateY(-10%);
+    width: 100%;
+    padding-top: calc(80px + 2%); /* Adds space for the navbar height dynamically */
+}
+
+.video-overlay h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #BF5700; /* Burnt orange */
+}
+
+.video-overlay p {
+    font-size: 1.5rem;
+    color: #FFF5E1; /* Light cream */
+    margin-bottom: 20px;
+}
+
+/* Optional: Additional styling for responsiveness */
+@media (max-width: 768px) {
+    /* Navbar adjustments */
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    /* Video overlay adjustments */
+    .video-overlay {
+        position: relative;
+        z-index: 1;
+        margin-top: 120px; /* Ensures the text is below the navbar */
+        padding: 0 20px; /* Adds space on the left and right edges */
+        text-align: center;
+    }
+
+    .video-overlay h1 {
+        font-size: 2rem; /* Smaller font for mobile */
+    }
+
+    .video-overlay p {
+        font-size: 1.25rem;
+    }
+}
+
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}

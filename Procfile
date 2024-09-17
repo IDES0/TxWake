@@ -1,1 +1,1 @@
-web: gunicorn txwake.wsgi --workers 3 --bind 0.0.0.0:$PORT
+web: gunicorn txwake.wsgi --workers 3 --worker-class gthread --threads 4 --bind 0.0.0.0:${PORT:-8000} --log-level debug --access-logfile - --timeout 120 --graceful-timeout 120

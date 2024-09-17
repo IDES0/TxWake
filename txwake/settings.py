@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-t31hd=m!sd0tncaq6#=^sa6+7e=i!-o9ew=n9p6oxy)wts2)$j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['texaswake.org', 'www.texaswake.org', 'stingray-app-mquhj.ondigitalocean.app']
+ALLOWED_HOSTS = ['texaswake.org', 'www.texaswake.org', '127.0.0.1']
 
 
 # Application definition
@@ -64,9 +64,6 @@ MIDDLEWARE = [
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'txwake', 'static'),  # Adjusted to your structure
-]
 
 ROOT_URLCONF = 'txwake.urls'
 
