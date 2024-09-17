@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -25,7 +24,7 @@ SECRET_KEY = 'django-insecure-t31hd=m!sd0tncaq6#=^sa6+7e=i!-o9ew=n9p6oxy)wts2)$j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['texaswake.org', 'www.texaswake.org']
+ALLOWED_HOSTS = ['texaswake.org', 'www.texaswake.org', 'stingray-app-mquhj.ondigitalocean.app']
 
 
 # Application definition
@@ -64,7 +63,7 @@ MIDDLEWARE = [
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # Uncomment this line
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
 ROOT_URLCONF = 'txwake.urls'
 
