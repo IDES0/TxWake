@@ -21,13 +21,6 @@ body {
     box-sizing: border-box;
 }
 
-.navbar .logo a {
-    color: #BF5700; /* Burnt orange */
-    text-decoration: none;
-    font-size: 24px;
-    font-weight: bold;
-}
-
 .navbar .nav-links {
     list-style: none;
     display: flex;
@@ -53,6 +46,65 @@ body {
     border-radius: 4px;
 }
 
+/* Hamburger Menu for Mobile */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.mobile-menu span {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+/* Mobile dropdown menu (hidden by default) */
+.mobile-menu-list {
+    display: none;
+    list-style-type: none;
+    background-color: rgba(191, 87, 0, 0.5); /* Semi-transparent burnt orange */
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu-list li {
+    padding: 10px;
+    text-align: center;
+}
+
+.mobile-menu-list li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+/* Media query for mobile screens */
+@media only screen and (max-width: 768px) {
+    .desktop-menu {
+        display: none !important; /* Hide desktop menu on mobile */
+    }
+
+    .mobile-menu {
+        display: flex !important; /* Show hamburger menu on mobile */
+    }
+
+    .mobile-menu-list {
+        display: none; /* Ensure mobile menu list is hidden by default */
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .mobile-menu {
+        display: none !important; /* Hide hamburger menu on desktop */
+    }
+
+    .mobile-menu-list {
+        display: none !important; /* Ensure mobile menu list is hidden on desktop */
+    }
+}
+
 /* Container for Centering the Content */
 .container {
     display: flex;
@@ -65,7 +117,7 @@ body {
 
 /* Form Box Styling (e.g., Login Forms) */
 .form-box {
-    background-color: #F2A900; /* Lighter burnt orange background */
+    background-color: rgba(191, 87, 0, 0.5); /* Semi-transparent burnt orange */
     padding: 20px 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -156,7 +208,7 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #BF5700; /* Burnt orange background */
+    background-color: rgba(191, 87, 0, 0.5); /* Semi-transparent burnt orange */
     min-width: 200px;
     padding: 10px 0;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -174,7 +226,7 @@ body {
 }
 
 .dropdown-content a:hover {
-    background-color: #A64B00; /* Darker burnt orange on hover */
+    background-color: rgba(79, 35, 0, 0.5); /* Semi-transparent burnt orange */
 }
 
 .dropdown:hover .dropdown-content {
@@ -371,8 +423,79 @@ body {
     }
 }
 
-
 img, video {
     max-width: 100%;
     height: auto;
 }
+
+/* Interested Button Styling */
+.interested-button {
+    background-color: #BF5700; /* Burnt orange */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.interested-button:hover {
+    background-color: #A64B00; /* Darker burnt orange */
+}
+
+.popup-container {
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    display: none; /* Start hidden */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    z-index: 1000; /* High z-index to ensure it's on top */
+}
+
+.popup-content {
+    background-color: rgba(42, 27, 0, 0.702); /* Semi-transparent orange for the background */
+    padding: 20px;
+    border-radius: 10px;
+    width: auto; /* Adjust width as needed */
+    max-width: 500px; /* Limits width on larger screens */
+    text-align: center; /* Center text inside the popup */
+}
+
+.input-field,
+.submit-btn {
+    width: 80%; /* Full width of the form */
+    padding: 10px;
+    margin: 10px 0; /* Spacing between elements */
+    border-radius: 5px;
+    border: 1px solid #ffffff; /* White border for visibility */
+}
+
+.input-field {
+    background-color: #fff; /* White background for the input field */
+    color: #333; /* Dark text for readability */
+}
+
+.submit-btn {
+    background-color: #BF5700; /* Burnt orange background */
+    color: #fff; /* White text */
+    cursor: pointer;
+    border: none; /* No border for the button */
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #A64B00; /* Darker shade on hover */
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ffffff; /* White color for visibility */
+}
+

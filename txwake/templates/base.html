@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'txwake/images/favicon.ico' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}TxWake{% endblock %}</title>
@@ -12,14 +13,49 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="logo">
-            <a href="{% url 'home' %}">TxWake</a>
+            <a href="{% url 'home' %}">
+              <img src="{% static 'txwake/images/TexasWakeLogo.png' %}" alt="TxWake Logo" style="height:40px;">
+            </a>
         </div>
-        <ul class="nav-links">
+
+        <!-- Desktop Navigation Menu (hidden on mobile) -->
+        <ul class="nav-links desktop-menu">
             <li><a href="{% url 'home' %}">Home</a></li>
-            
+
             {% if user.is_authenticated %}
                 <li><a href="{% url 'boat_pull_list' %}">Boat Pull Sign-Up</a></li>
-                
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">{{ user.username }}</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'profile' %}">Profile</a>
+                        <a href="{% url 'logout' %}">Logout</a>
+                    </div>
+                </li>
+            {% else %}
+                <li><a href="{% url 'login' %}" class="nav-btn">Boat Pull Sign-Up</a></li>
+                <li class="dropdown">
+                    <a href="{% url 'login' %}" class="dropbtn">No Account</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'login' %}">Login</a>
+                        <a href="{% url 'register' %}">Register</a>
+                    </div>
+                </li>
+            {% endif %}
+        </ul>
+
+        <!-- Hamburger Menu for Mobile (hidden on desktop) -->
+        <div class="mobile-menu" id="mobile-menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Mobile Dropdown Menu (hidden by default, toggled by hamburger icon) -->
+        <ul class="nav-links mobile-menu-list" id="mobile-menu-list">
+            <li><a href="{% url 'home' %}">Home</a></li>
+
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'boat_pull_list' %}">Boat Pull Sign-Up</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">{{ user.username }}</a>
                     <div class="dropdown-content">
@@ -45,6 +81,18 @@
         {% block content %}
         {% endblock %}
     </div>
-    
+
+    <script>
+        // JavaScript to toggle mobile menu visibility
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+            const mobileMenuList = document.getElementById('mobile-menu-list');
+
+            mobileMenuIcon.addEventListener('click', function () {
+                mobileMenuList.style.display = mobileMenuList.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+
 </body>
 </html>

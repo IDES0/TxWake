@@ -17,11 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from .views import email_subscription  # make sure to import the view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
+    path('subscribe/', email_subscription, name='email_subscription'),
     path('user/', include('users.urls')),
-    path('boat_pulls/', views.boat_pull_list, name='boat_pull_list'),
-    path('boat_pulls/<int:pull_id>/signup/', views.boat_pull_signup, name='boat_pull_signup'),
-]
+    path('boat_pulls/', views.boat_pull_list, name='boat_pull_list'),]

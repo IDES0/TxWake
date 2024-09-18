@@ -7,7 +7,7 @@ Home - Texas Wake
 
 {% block content %}
     <!-- Video Background Section -->
-    <video autoplay muted loop playsinline id="background-video" poster="{% static 'txwake/videos/TxWakeImg.jpg' %}">
+    <video autoplay muted loop playsinline id="background-video" poster="{% static 'txwake/images/TxWakeImg.jpg' %}">
         <source src="{% static 'txwake/videos/HomepageVideo.mp4' %}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -16,5 +16,36 @@ Home - Texas Wake
     <div class="video-overlay">
         <h1>Welcome to Texas Wake</h1>
         <p>Wakeboarding at the University of Texas at Austin</p>
-    </div>
+        <!-- Interested Button -->
+
+        <button id="interestedButton" class="interested-button">Join Now!</button>
+
+        <div id="emailPopup" class="popup-container">
+            <div class="popup-content">
+                <span class="close-btn">&times;</span>
+                <h2>Stay Updated!</h2>
+                <p>Enter your email to stay updated:</p>
+                <form action="{% url 'email_subscription' %}" method="post">
+                    {% csrf_token %}
+                    <input type="email" name="email" class="input-field" placeholder="Enter your email" required>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+        
+        <script>
+            document.getElementById('interestedButton').onclick = function() {
+                document.getElementById('emailPopup').style.display = 'flex'; // Show the popup
+            };
+            document.querySelector('.close-btn').onclick = function() {
+                document.getElementById('emailPopup').style.display = 'none'; // Hide the popup on click of close button
+            };
+        
+            // Optional: Close the popup when clicking outside of the popup content
+            window.onclick = function(event) {
+                if (event.target == document.getElementById('emailPopup')) {
+                    document.getElementById('emailPopup').style.display = "none";
+                }
+            }
+        </script>
 {% endblock %}

@@ -1,6 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class EmailSubscription(models.Model):
+    email = models.EmailField()
+    date_subscribed = models.DateTimeField(auto_now_add=True) 
+
+    def __str__(self):
+        return self.email
+    
 class BoatPull(models.Model):
     date = models.DateField()
     time = models.TimeField()
@@ -12,7 +19,7 @@ class BoatPull(models.Model):
         return f"{self.date} at {self.time} - Spots Left: {self.available_spots}"
 
 
-class Signup(models.Model):
+class BoatPullSignup(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     boat_pull = models.ForeignKey(BoatPull, on_delete=models.CASCADE)
     signup_time = models.DateTimeField(auto_now_add=True)

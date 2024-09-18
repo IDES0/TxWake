@@ -19,13 +19,19 @@
                 {% endif %}
             </ul>
 
-            <!-- Registration form -->
+            <!-- Registration and Drop Form -->
             {% if pull.is_registered %}
-                <p class="already-registered">You have already registered for this pull.</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="pull_id" value="{{ pull.boat_pull.id }}">
+                    <input type="hidden" name="action" value="drop">
+                    <button type="submit" class="register-button">Drop from this pull</button>
+                </form>
             {% elif pull.boat_pull.available_spots > 0 %}
                 <form method="post">
                     {% csrf_token %}
                     <input type="hidden" name="pull_id" value="{{ pull.boat_pull.id }}">
+                    <input type="hidden" name="action" value="register">
                     <button type="submit" class="register-button">Register for this pull</button>
                 </form>
             {% else %}
@@ -35,6 +41,8 @@
         <hr> <!-- Separate each boat pull visually -->
     {% endfor %}
 </div>
+
+<!-- Displaying messages (success, errors, etc.) -->
 {% if messages %}
     <div class="messages">
         {% for message in messages %}
