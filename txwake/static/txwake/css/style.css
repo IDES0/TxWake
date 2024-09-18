@@ -1,4 +1,7 @@
 /* General Body Styling */
+html {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -62,11 +65,14 @@ body {
 
 /* Mobile dropdown menu (hidden by default) */
 .mobile-menu-list {
-    display: none;
+    display: none;  /* Ensures mobile menu is hidden by default */
     list-style-type: none;
-    background-color: rgba(191, 87, 0, 0.5); /* Semi-transparent burnt orange */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
     padding: 0;
     margin: 0;
+    flex-direction: column;
+    width: 100%;  /* Ensure it takes full screen width */
+
 }
 
 .mobile-menu-list li {
@@ -91,7 +97,13 @@ body {
     }
 
     .mobile-menu-list {
-        display: none; /* Ensure mobile menu list is hidden by default */
+        display: none;
+        flex-direction: column; /* Stack menu items vertically */
+        position: absolute;
+        top: 64px; /* Position it below the navbar */
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
     }
 }
 
@@ -101,7 +113,7 @@ body {
     }
 
     .mobile-menu-list {
-        display: none !important; /* Ensure mobile menu list is hidden on desktop */
+        display: none !important; /* Ensure mobile menu is hidden on desktop */
     }
 }
 
@@ -110,8 +122,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    max-width: 1000px;
+    padding: 10px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
